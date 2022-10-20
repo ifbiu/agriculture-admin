@@ -115,3 +115,12 @@ export function param2Obj(url) {
   })
   return obj
 }
+
+export const isJSON = s => {
+  try {
+    JSON.parse(s)
+  } catch (e) {
+    return false
+  }
+  return true
+}
