@@ -43,10 +43,10 @@
 
       <el-button :loading="loading" type="primary" style="width:100%;margin-bottom:30px;" @click.native.prevent="handleLogin">登录</el-button>
 
-<!--      <div class="tips">-->
-<!--        <span style="margin-right:20px;">username: admin</span>-->
-<!--        <span> password: any</span>-->
-<!--      </div>-->
+      <div class="tips">
+        <span style="margin-right:20px;">测试用户: admin</span>
+        <span> 测试密码: 123456</span>
+      </div>
 
     </el-form>
   </div>
@@ -54,6 +54,7 @@
 
 <script>
 import { login } from '@/request'
+import {mapState} from "vuex";
 
 export default {
   name: 'Login',
@@ -127,6 +128,7 @@ export default {
         this.$store.dispatch('user/login', this.loginForm).then(() => {
           this.$router.push({ path: this.redirect || '/' })
           this.loading = false
+          this.$store.state.username = this.loginForm.username
         }).catch(() => {
           this.loading = false
         })

@@ -1,15 +1,18 @@
 <template>
   <div class="dashboard-container">
-    <div class="dashboard-text">欢迎登录：{{ name }}</div>
+    <div class="dashboard-text">欢迎登录：{{ username }}</div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState,mapGetters } from 'vuex'
 
 export default {
   name: 'Dashboard',
   computed: {
+    ...mapState([
+      'username'
+    ]),
     ...mapGetters([
       'name'
     ])

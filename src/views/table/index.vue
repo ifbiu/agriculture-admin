@@ -1,5 +1,17 @@
 <template>
   <div class="app-container">
+    <el-row>
+      <el-col :span="8" class="city-cascade">
+        <el-cascader
+          v-model="value"
+          :options="options"
+          @change="handleChange"
+          style="width: 100%;min-width: 400px"
+        >
+        </el-cascader>
+      </el-col>
+    </el-row>
+
     <el-table
       v-loading="listLoading"
       :data="list"
@@ -35,7 +47,7 @@
       </el-table-column>
       <el-table-column align="center" prop="created_at" label="Display_time" width="200">
         <template slot-scope="scope">
-          <i class="el-icon-time" />
+          <i class="el-icon-time"/>
           <span>{{ scope.row.display_time }}</span>
         </template>
       </el-table-column>
@@ -44,7 +56,9 @@
 </template>
 
 <script>
-import { getList } from '@/api/table'
+import {getList} from '@/api/table'
+import {cityCascade} from "@/utils/city-cascade";
+import { mapState } from 'vuex'
 
 export default {
   filters: {
@@ -60,7 +74,9 @@ export default {
   data() {
     return {
       list: null,
-      listLoading: true
+      listLoading: true,
+      value: [],
+      options:cityCascade
     }
   },
   created() {
@@ -71,9 +87,21 @@ export default {
       this.listLoading = true
       getList().then(response => {
         this.list = response.data.items
+        console.log(this.list);
         this.listLoading = false
       })
-    }
+    },
+    handleChange(value) {
+      console.log(value);
+    },
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.app-container{
+  .city-cascade{
+    margin: 30px 0;
+  }
+}
+</style>
