@@ -126,7 +126,7 @@ export default {
       if (res.code === '200') {
         this.loading = true
         this.$store.dispatch('user/login', this.loginForm).then(() => {
-          this.$router.push({ path: this.redirect || '/' })
+          this.$router.push({ path: this.redirect || '/dashboard' })
           this.loading = false
           this.$store.state.username = this.loginForm.username
         }).catch(() => {

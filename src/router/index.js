@@ -45,14 +45,19 @@ export const constantRoutes = [
 
   {
     path: '/',
+    component: () => import('@/views/login/index'),
+  },
+
+  {
+    path: '/dashboard',
     component: Layout,
-    redirect: '/dashboard',
     children: [{
-      path: 'dashboard',
+      path: '/',
       name: 'Dashboard',
       component: () => import('@/views/dashboard/index'),
       meta: { title: '农业大数据管理系统', icon: 'dashboard' }
-    }]
+    }],
+    hidden: true
   },
 
   {

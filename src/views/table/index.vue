@@ -20,35 +20,69 @@
       fit
       highlight-current-row
     >
-      <el-table-column align="center" label="ID" width="95">
+      <el-table-column label="ID" width="60" align="center">
         <template slot-scope="scope">
-          {{ scope.$index }}
+          {{ scope.$index+1 }}
         </template>
       </el-table-column>
-      <el-table-column label="Title">
+      <el-table-column label="旗县" width="110" align="center">
         <template slot-scope="scope">
-          {{ scope.row.title }}
+          {{ scope.row.county }}
         </template>
       </el-table-column>
-      <el-table-column label="Author" width="110" align="center">
+      <el-table-column label="人口数" width="110" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.author }}</span>
+          <span>{{ scope.row.population }}</span>
         </template>
       </el-table-column>
-      <el-table-column label="Pageviews" width="110" align="center">
+      <el-table-column label="生产总值" width="110" align="center">
         <template slot-scope="scope">
-          {{ scope.row.pageviews }}
+          {{ scope.row.gdp }}
         </template>
       </el-table-column>
-      <el-table-column class-name="status-col" label="Status" width="110" align="center">
+      <el-table-column label="生产总值增长率" width="120" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.status | statusFilter">{{ scope.row.status }}</el-tag>
+          <el-tag :type="scope.row.gdp_incr | statusFilter">{{ scope.row.gdp_incr }}</el-tag>
         </template>
       </el-table-column>
-      <el-table-column align="center" prop="created_at" label="Display_time" width="200">
+      <el-table-column label="耕地面积" width="120" align="center">
         <template slot-scope="scope">
-          <i class="el-icon-time"/>
-          <span>{{ scope.row.display_time }}</span>
+          {{ scope.row.cultivated_area }}
+        </template>
+      </el-table-column>
+      <el-table-column label="耕地面积增长率" width="120" align="center">
+        <template slot-scope="scope">
+          <el-tag :type="scope.row.cultivated_area_incr | statusFilter">{{ scope.row.cultivated_area_incr }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="总播种面积" width="120" align="center">
+        <template slot-scope="scope">
+          {{ scope.row.farmland_area }}
+        </template>
+      </el-table-column>
+      <el-table-column label="总播种面积增长率" width="140" align="center">
+        <template slot-scope="scope">
+          <el-tag :type="scope.row.farmland_area_incr | statusFilter">{{ scope.row.farmland_area_incr }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="粮食产量" width="120" align="center">
+        <template slot-scope="scope">
+          {{ scope.row.grain_yield }}
+        </template>
+      </el-table-column>
+      <el-table-column label="粮食产量增长率" width="120" align="center">
+        <template slot-scope="scope">
+          <el-tag :type="scope.row.grain_yield_incr | statusFilter">{{ scope.row.grain_yield_incr }}</el-tag>
+        </template>
+      </el-table-column>
+      <el-table-column label="油料产量" width="120" align="center">
+        <template slot-scope="scope">
+          {{ scope.row.oil_production }}
+        </template>
+      </el-table-column>
+      <el-table-column label="油料产量增长率" width="120" align="center">
+        <template slot-scope="scope">
+          <el-tag :type="scope.row.oil_production_incr | statusFilter">{{ scope.row.oil_production_incr }}</el-tag>
         </template>
       </el-table-column>
     </el-table>
@@ -56,8 +90,8 @@
 </template>
 
 <script>
-import {getList} from '@/api/table'
-import {cityCascade} from "@/utils/city-cascade";
+import {getYearBooks} from '@/request'
+import {cityCascade1} from "@/utils/city-cascade";
 import { mapState } from 'vuex'
 
 export default {
@@ -68,7 +102,14 @@ export default {
         draft: 'gray',
         deleted: 'danger'
       }
-      return statusMap[status]
+      status = parseFloat(status)
+      if (status>0){
+        return statusMap.published
+      }else if (status<0){
+        return statusMap.deleted
+      }else {
+        return statusMap.draft
+      }
     }
   },
   data() {
@@ -76,23 +117,20 @@ export default {
       list: null,
       listLoading: true,
       value: [],
-      options:cityCascade
+      options:cityCascade1
     }
   },
   created() {
-    this.fetchData()
+    this.listLoading = false
   },
   methods: {
-    fetchData() {
+    handleChange(value) {
       this.listLoading = true
-      getList().then(response => {
-        this.list = response.data.items
-        console.log(this.list);
+      getYearBooks({city:value[1]}).then(response => {
+        this.list = response.data
+        console.log(this.list)
         this.listLoading = false
       })
-    },
-    handleChange(value) {
-      console.log(value);
     },
   }
 }

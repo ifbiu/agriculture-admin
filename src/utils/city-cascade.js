@@ -364,3 +364,49 @@ export const cityCascade = [{
     },
   ]
 },]
+
+export const cityCascade1 = [{
+  value: '15',
+  label: '内蒙古',
+  children: [
+    {
+      value: 'huhehaote',
+      label: '呼和浩特市',
+    },
+    {
+      value: 'baotou',
+      label: '包头',
+    },
+    {
+      value: 'hulunbeier',
+      label: '呼伦贝尔市',
+    },{
+      value: 'xinganmeng',
+      label: '兴安盟',
+    },{
+      value: 'tongliao',
+      label: '通辽市',
+    },{
+      value: 'chifeng',
+      label: '赤峰市',
+    },{
+      value: 'xilinguole',
+      label: '锡林郭勒盟',
+    },{
+      value: 'wulanchabu',
+      label: '乌兰察布市',
+    },{
+      value: 'eerduosi',
+      label: '鄂尔多斯市',
+    },{
+      value: 'bayannaoer',
+      label: '巴彦淖尔市',
+    },{
+      value: 'wuhai',
+      label: '乌海市',
+    },{
+      value: 'alashan',
+      label: '阿拉善盟',
+    },
+  ]
+},]
