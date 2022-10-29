@@ -127,9 +127,14 @@ export default {
     handleChange(value) {
       this.listLoading = true
       getYearBooks({city:value[1]}).then(response => {
-        this.list = response.data
-        console.log(this.list)
-        this.listLoading = false
+        if (response){
+          this.list = response.data
+          this.listLoading = false
+        }else {
+          this.$message.error("请先登录！")
+          this.$router.push("/login")
+        }
+
       })
     },
   }
