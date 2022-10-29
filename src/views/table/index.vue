@@ -132,6 +132,7 @@ export default {
           this.listLoading = false
         }else {
           this.$message.error("请先登录！")
+          localStorage.removeItem('access_token')
           this.$router.push("/login")
         }
 
