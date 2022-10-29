@@ -1,4 +1,5 @@
 import http from './http'
+import axios from "axios";
 
 // 封装 get 请求 返回的是一个promise
 export function get(url, params) {
@@ -24,6 +25,7 @@ export function post(url, params) {
     })
   })
 }
+
 // 获取轮播图数据
 export const login = data => post('/login', data)
 export const getYearBooks = data => get('/getYearBooksAll', data)

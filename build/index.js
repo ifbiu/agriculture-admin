@@ -20,7 +20,7 @@ if (process.env.npm_config_preview || rawArgv.includes('--preview')) {
     publicPath,
     serveStatic('./dist', {
       index: ['index.html', '/']
-    })
+    }),
   )
 
   app.listen(port, function () {
