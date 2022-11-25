@@ -124,6 +124,7 @@ export default {
         password: this.loginForm.password
       })
       if (res.code === '200') {
+        localStorage.removeItem('access_token')
         this.$router.push('/dashboard')
         this.loading = false
         this.$store.state.username = this.loginForm.username
