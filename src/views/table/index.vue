@@ -85,6 +85,11 @@
           <el-tag :type="scope.row.oil_production_incr | statusFilter">{{ scope.row.oil_production_incr }}</el-tag>
         </template>
       </el-table-column>
+      <el-table-column label="操作" width="120" align="center">
+        <template slot-scope="scope">
+          <div @click="updateInfo(scope.row.county)">修改信息</div>
+        </template>
+      </el-table-column>
     </el-table>
   </div>
 </template>
@@ -135,9 +140,11 @@ export default {
           localStorage.removeItem('access_token')
           this.$router.push("/login")
         }
-
       })
     },
+    updateInfo(value){
+      console.log(value)
+    }
   }
 }
 </script>
