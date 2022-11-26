@@ -29,3 +29,4 @@ export function post(url, params) {
 // 获取轮播图数据
 export const login = data => post('/login', data)
 export const getYearBooks = data => get('/getYearBooksAll', data)
+export const getDiffCounty = data => get('/getDiffCounty', data)

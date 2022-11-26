@@ -138,6 +138,7 @@ export default {
         }else {
           this.$message.error("请先登录！")
           localStorage.removeItem('access_token')
+          localStorage.removeItem('Authorization')
           this.$router.push("/login")
         }
       })

@@ -72,6 +72,12 @@ export const constantRoutes = [
         name: 'Table',
         component: () => import('@/views/table/index'),
         meta: { title: '修改数据', icon: 'table' }
+      },
+      {
+        path: 'diff',
+        name: 'Diff',
+        component: () => import('@/views/diff/index'),
+        meta: { title: '数据对比', icon: 'table' }
       }
     ]
   },

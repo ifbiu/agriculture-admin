@@ -125,11 +125,13 @@ export default {
       })
       if (res.code === '200') {
         localStorage.removeItem('access_token')
+        localStorage.removeItem('Authorization')
         this.$router.push('/dashboard')
         this.loading = false
         this.$store.state.username = this.loginForm.username
         this.$store.state.token = res.token
         localStorage.setItem('access_token', res.token)
+        localStorage.setItem('Authorization', res.token)
       } else {
         if (res.msg === undefined) {
           this.$message.error('request error');
