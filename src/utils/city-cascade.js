@@ -32,7 +32,7 @@ export const cityCascade = [{
       }, {
         value: '150125',
         label: '武川县'
-      },]
+      }]
     },
     {
       value: '150200',
@@ -64,7 +64,7 @@ export const cityCascade = [{
       }, {
         value: '150223',
         label: '达尔罕茂明安联合旗'
-      },]
+      }]
     },
     {
       value: '150700',
@@ -111,8 +111,8 @@ export const cityCascade = [{
       }, {
         value: '150785',
         label: '根河市'
-      },]
-    },{
+      }]
+    }, {
       value: '152200',
       label: '兴安盟',
       children: [{
@@ -133,8 +133,8 @@ export const cityCascade = [{
       }, {
         value: '152224',
         label: '突泉县'
-      },]
-    },{
+      }]
+    }, {
       value: '150500',
       label: '通辽市',
       children: [{
@@ -161,8 +161,8 @@ export const cityCascade = [{
       }, {
         value: '150581',
         label: '霍林郭勒市'
-      },]
-    },{
+      }]
+    }, {
       value: '150400',
       label: '赤峰市',
       children: [{
@@ -201,8 +201,8 @@ export const cityCascade = [{
       }, {
         value: '150430',
         label: '敖汉旗'
-      },]
-    },{
+      }]
+    }, {
       value: '152500',
       label: '锡林郭勒盟',
       children: [{
@@ -241,8 +241,8 @@ export const cityCascade = [{
       }, {
         value: '150531',
         label: '多伦县'
-      },]
-    },{
+      }]
+    }, {
       value: '150900',
       label: '乌兰察布市',
       children: [{
@@ -278,8 +278,8 @@ export const cityCascade = [{
       }, {
         value: '150981',
         label: '丰镇市'
-      },]
-    },{
+      }]
+    }, {
       value: '150600',
       label: '鄂尔多斯市',
       children: [{
@@ -309,8 +309,8 @@ export const cityCascade = [{
       }, {
         value: '150627',
         label: '伊金霍洛旗'
-      },]
-    },{
+      }]
+    }, {
       value: '150800',
       label: '巴彦淖尔市',
       children: [{
@@ -334,8 +334,8 @@ export const cityCascade = [{
       }, {
         value: '150826',
         label: '杭锦后旗'
-      },]
-    },{
+      }]
+    }, {
       value: '150300',
       label: '乌海市',
       children: [{
@@ -347,8 +347,8 @@ export const cityCascade = [{
       }, {
         value: '150304',
         label: '乌达区'
-      },]
-    },{
+      }]
+    }, {
       value: '150900',
       label: '阿拉善盟',
       children: [{
@@ -360,10 +360,10 @@ export const cityCascade = [{
       }, {
         value: '150923',
         label: '额济纳旗'
-      },]
-    },
+      }]
+    }
   ]
-},]
+}]
 
 export const cityCascade1 = [{
   value: '15',
@@ -371,42 +371,42 @@ export const cityCascade1 = [{
   children: [
     {
       value: 'huhehaote',
-      label: '呼和浩特市',
+      label: '呼和浩特市'
     },
     {
       value: 'baotou',
-      label: '包头',
+      label: '包头'
     },
     {
       value: 'hulunbeier',
-      label: '呼伦贝尔市',
-    },{
+      label: '呼伦贝尔市'
+    }, {
       value: 'xinganmeng',
-      label: '兴安盟',
-    },{
+      label: '兴安盟'
+    }, {
       value: 'tongliao',
-      label: '通辽市',
-    },{
+      label: '通辽市'
+    }, {
       value: 'chifeng',
-      label: '赤峰市',
-    },{
+      label: '赤峰市'
+    }, {
       value: 'xilinguole',
-      label: '锡林郭勒盟',
-    },{
+      label: '锡林郭勒盟'
+    }, {
       value: 'wulanchabu',
-      label: '乌兰察布市',
-    },{
+      label: '乌兰察布市'
+    }, {
       value: 'eerduosi',
-      label: '鄂尔多斯市',
-    },{
+      label: '鄂尔多斯市'
+    }, {
       value: 'bayannaoer',
-      label: '巴彦淖尔市',
-    },{
+      label: '巴彦淖尔市'
+    }, {
       value: 'wuhai',
-      label: '乌海市',
-    },{
+      label: '乌海市'
+    }, {
       value: 'alashan',
-      label: '阿拉善盟',
-    },
+      label: '阿拉善盟'
+    }
   ]
-},]
+}]

@@ -54,7 +54,7 @@
 
 <script>
 import { login } from '@/request'
-import {mapState} from "vuex";
+import { mapState } from 'vuex'
 
 export default {
   name: 'Login',
@@ -134,9 +134,9 @@ export default {
         localStorage.setItem('Authorization', res.token)
       } else {
         if (res.msg === undefined) {
-          this.$message.error('request error');
+          this.$message.error('request error')
         } else {
-          this.$message.error(res.msg);
+          this.$message.error(res.msg)
         }
       }
     }

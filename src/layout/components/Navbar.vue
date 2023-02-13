@@ -11,11 +11,11 @@
           <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown" class="user-dropdown">
-<!--          <router-link to="/">-->
-<!--            <el-dropdown-item>-->
-<!--              首页-->
-<!--            </el-dropdown-item>-->
-<!--          </router-link>-->
+          <!--          <router-link to="/">-->
+          <!--            <el-dropdown-item>-->
+          <!--              首页-->
+          <!--            </el-dropdown-item>-->
+          <!--          </router-link>-->
           <a target="_blank" href="https://agriculture.ifbiu.com/">
             <el-dropdown-item>数据大屏</el-dropdown-item>
           </a>

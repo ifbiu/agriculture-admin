@@ -3,7 +3,7 @@ import config from './config'
 import { isJSON } from '@/utils'
 
 const instance = axios.create({
-  baseURL: config.baseURL,
+  baseURL: config.baseURL
 })
 
 instance.defaults.transformRequest = [
@@ -20,6 +20,6 @@ instance.defaults.transformResponse = [
     return data
   }
 ]
-axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token');
+axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token')
 
 export default instance

@@ -14,6 +14,7 @@ import store from './store'
 import router from './router'
 
 import '@/icons' // icon
+import './plugins/element.js'
 // import '@/permission' // permission control
 
 /**

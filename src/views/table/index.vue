@@ -5,10 +5,9 @@
         <el-cascader
           v-model="value"
           :options="options"
-          @change="handleChange"
           style="width: 100%;min-width: 400px"
-        >
-        </el-cascader>
+          @change="handleChange"
+        />
       </el-col>
     </el-row>
 
@@ -95,8 +94,8 @@
 </template>
 
 <script>
-import {getYearBooks} from '@/request'
-import {cityCascade1} from "@/utils/city-cascade";
+import { getYearBooks } from '@/request'
+import { cityCascade1 } from '@/utils/city-cascade'
 import { mapState } from 'vuex'
 
 export default {
@@ -108,11 +107,11 @@ export default {
         deleted: 'danger'
       }
       status = parseFloat(status)
-      if (status>0){
+      if (status > 0) {
         return statusMap.published
-      }else if (status<0){
+      } else if (status < 0) {
         return statusMap.deleted
-      }else {
+      } else {
         return statusMap.draft
       }
     }
@@ -122,7 +121,7 @@ export default {
       list: null,
       listLoading: true,
       value: [],
-      options:cityCascade1
+      options: cityCascade1
     }
   },
   created() {
@@ -131,19 +130,17 @@ export default {
   methods: {
     handleChange(value) {
       this.listLoading = true
-      getYearBooks({city:value[1]}).then(response => {
-        if (response){
+      getYearBooks({ city: value[1] }).then(response => {
+        if (response) {
           this.list = response.data
           this.listLoading = false
-        }else {
-          this.$message.error("请先登录！")
-          localStorage.removeItem('access_token')
-          localStorage.removeItem('Authorization')
-          this.$router.push("/login")
+        } else {
+          this.$message.error('请先登录！')
+          this.$router.push('/login')
         }
       })
     },
-    updateInfo(value){
+    updateInfo(value) {
       console.log(value)
     }
   }
