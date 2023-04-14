@@ -60,13 +60,13 @@
       </el-table-column>
       <el-table-column label="总播种面积" width="120" align="center">
         <template slot-scope="scope">
-          <input style="width: 80px;border:0px;" v-model="scope.row.farmland_area"></input>
+          <input style="width: 80px;border:0px;" v-model="scope.row.sown_area"></input>
         </template>
       </el-table-column>
       <el-table-column label="总播种面积增长率" width="140" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.farmland_area_incr | statusFilter">
-            <input style="width: 40px;border:0px;" v-model="scope.row.farmland_area_incr"></input>
+          <el-tag :type="scope.row.sown_area_incr | statusFilter">
+            <input style="width: 40px;border:0px;" v-model="scope.row.sown_area_incr"></input>
           </el-tag>
         </template>
       </el-table-column>
