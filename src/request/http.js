@@ -20,6 +20,6 @@ instance.defaults.transformResponse = [
     return data
   }
 ]
-axios.defaults.headers.common['Authorization'] = localStorage.getItem('access_token')
+// axios.defaults.headers.common['Authorization'] = sessionStorage.getItem('Authorization')
 
 export default instance

@@ -31,62 +31,72 @@
       </el-table-column>
       <el-table-column label="人口数" width="110" align="center">
         <template slot-scope="scope">
-          <span>{{ scope.row.population }}</span>
+          <input style="width: 60px;border:0px;" v-model="scope.row.population"></input>
         </template>
       </el-table-column>
       <el-table-column label="生产总值" width="110" align="center">
         <template slot-scope="scope">
-          {{ scope.row.gdp }}
+          <input style="width: 80px;border:0px;" v-model="scope.row.gdp"></input>
         </template>
       </el-table-column>
       <el-table-column label="生产总值增长率" width="120" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.gdp_incr | statusFilter">{{ scope.row.gdp_incr }}</el-tag>
+          <el-tag :type="scope.row.gdp_incr | statusFilter">
+            <input style="width: 40px;border:0px;" v-model="scope.row.gdp_incr"></input>
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="耕地面积" width="120" align="center">
         <template slot-scope="scope">
-          {{ scope.row.cultivated_area }}
+          <input style="width: 80px;border:0px;" v-model="scope.row.cultivated_area"></input>
         </template>
       </el-table-column>
       <el-table-column label="耕地面积增长率" width="120" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.cultivated_area_incr | statusFilter">{{ scope.row.cultivated_area_incr }}</el-tag>
+          <el-tag :type="scope.row.cultivated_area_incr | statusFilter">
+            <input style="width: 40px;border:0px;" v-model="scope.row.cultivated_area_incr"></input>
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="总播种面积" width="120" align="center">
         <template slot-scope="scope">
-          {{ scope.row.farmland_area }}
+          <input style="width: 80px;border:0px;" v-model="scope.row.farmland_area"></input>
         </template>
       </el-table-column>
       <el-table-column label="总播种面积增长率" width="140" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.farmland_area_incr | statusFilter">{{ scope.row.farmland_area_incr }}</el-tag>
+          <el-tag :type="scope.row.farmland_area_incr | statusFilter">
+            <input style="width: 40px;border:0px;" v-model="scope.row.farmland_area_incr"></input>
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="粮食产量" width="120" align="center">
         <template slot-scope="scope">
-          {{ scope.row.grain_yield }}
+          <input style="width: 80px;border:0px;" v-model="scope.row.grain_yield"></input>
         </template>
       </el-table-column>
       <el-table-column label="粮食产量增长率" width="120" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.grain_yield_incr | statusFilter">{{ scope.row.grain_yield_incr }}</el-tag>
+          <el-tag :type="scope.row.grain_yield_incr | statusFilter">
+            <input style="width: 40px;border:0px;" v-model="scope.row.grain_yield_incr"></input>
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="油料产量" width="120" align="center">
         <template slot-scope="scope">
-          {{ scope.row.oil_production }}
+          <input style="width: 80px;border:0px;" v-model="scope.row.oil_production"></input>
         </template>
       </el-table-column>
       <el-table-column label="油料产量增长率" width="120" align="center">
         <template slot-scope="scope">
-          <el-tag :type="scope.row.oil_production_incr | statusFilter">{{ scope.row.oil_production_incr }}</el-tag>
+          <el-tag :type="scope.row.oil_production_incr | statusFilter">
+            <input style="width: 40px;border:0px;" v-model="scope.row.oil_production_incr"></input>
+          </el-tag>
         </template>
       </el-table-column>
       <el-table-column label="操作" width="120" align="center">
         <template slot-scope="scope">
-          <div @click="updateInfo(scope.row.county)">修改信息</div>
+          <div @click="updateInfo(scope.row)">修改信息</div>
         </template>
       </el-table-column>
     </el-table>
@@ -94,7 +104,7 @@
 </template>
 
 <script>
-import { getYearBooks } from '@/request'
+import {getYearBooks, postYearBooks} from '@/request'
 import { cityCascade1 } from '@/utils/city-cascade'
 import { mapState } from 'vuex'
 
@@ -140,10 +150,22 @@ export default {
         }
       })
     },
-    updateInfo(value) {
-      console.log(value)
+    updateInfo(row) {
+      console.log(row)
+      this.listLoading = true
+      postYearBooks({ data: row }).then(response => {
+        if (response) {
+          this.list = response.data
+          this.listLoading = false
+          this.$message.success("修改成功")
+        } else {
+          this.$message.error('请先登录！')
+          this.$router.push('/login')
+        }
+      })
     }
-  }
+  },
+
 }
 </script>
 

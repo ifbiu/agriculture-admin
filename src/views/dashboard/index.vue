@@ -6,7 +6,7 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-
+console.log(localStorage.getItem('Authorization'))
 export default {
   name: 'Dashboard',
   computed: {

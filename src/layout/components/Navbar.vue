@@ -50,7 +50,8 @@ export default {
     },
     async logout() {
       // await this.$store.dispatch('user/logout')
-      localStorage.removeItem('access_token')
+      localStorage.clear()
+      sessionStorage.clear()
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
     }
   }

@@ -16,7 +16,8 @@ export function post(url, params) {
   return new Promise((resolve, reject) => {
     http.post(url, JSON.stringify(params), {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization':localStorage.getItem('Authorization')
       }
     }).then(res => {
       resolve(res.data)
@@ -29,4 +30,5 @@ export function post(url, params) {
 // 获取轮播图数据
 export const login = data => post('/login', data)
 export const getYearBooks = data => get('/getYearBooksAll', data)
+export const postYearBooks = data => post('/getYearBooksAll', data)
 export const getDiffCounty = data => get('/getDiffCounty', data)
